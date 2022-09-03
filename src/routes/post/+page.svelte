@@ -4,17 +4,17 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+	console.log(data)
 </script>
 
 <svelte:head>
-	<title>Todos</title>
-	<meta name="description" content="A todo list app" />
+  <title>ddd</title>
 </svelte:head>
 
 <!-- <div class="todos">
-	<h1>Todos</h1>
+	<h1>Todos</h1> -->
 
-	<form
+	<!-- <form
 		class="new"
 		action="/todos"
 		method="post"

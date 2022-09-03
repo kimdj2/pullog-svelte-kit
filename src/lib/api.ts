@@ -7,7 +7,7 @@
 	guarantees are made. Don't use it to organise your life.)
 */
 
-const base = 'https://api.svelte.dev';
+const base = 'https://pullog-api.herokuapp.com/app';
 
 export function api(method: string, resource: string, data?: Record<string, unknown>) {
 	return fetch(`${base}/${resource}`, {

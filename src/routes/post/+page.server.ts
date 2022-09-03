@@ -1,33 +1,21 @@
 import { error } from '@sveltejs/kit';
 import { api } from '$lib/api';
+import type { PostList } from '$lib/model/post-list'
 import type { PageServerLoad, Action } from './$types';
 
-type Todo = {
-	uid: string;
-	created_at: Date;
-	text: string;
-	done: boolean;
-	pending_delete: boolean;
-};
-
-export const load: PageServerLoad = async ({ locals }) => {
-	// locals.userid comes from src/hooks.js
-	const response = await api('GET', `todos/${locals.userid}`);
+export const load: PageServerLoad = async (data) => {
+	const response = await api('GET', `boards`);
 
 	if (response.status === 404) {
-		// user hasn't created a todo list.
-		// start with an empty array
 		return {
-			todos: [] as Todo[]
+			postList: {} as PostList
 		};
 	}
-
 	if (response.status === 200) {
 		return {
-			todos: (await response.json()) as Todo[]
+			postList: (await response.json()) as PostList
 		};
 	}
-
 	throw error(response.status);
 };
 
