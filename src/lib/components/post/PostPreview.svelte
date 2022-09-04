@@ -1,6 +1,6 @@
 <script lang="ts">
   import { format, parseISO } from 'date-fns'
-  import ButtonLink from './ButtonLink.svelte'
+  import ButtonLink from '../common/ButtonLink.svelte'
   import type { Post } from '$lib/model/post-list'
 
   export let post: Post

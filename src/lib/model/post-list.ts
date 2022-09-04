@@ -23,3 +23,4 @@ export type PageInfo = {
   pages: number
   previous: number
 }
+

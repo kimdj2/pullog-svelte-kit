@@ -2,11 +2,12 @@
   import { format, parseISO } from 'date-fns'
   import { page } from '$app/stores'
   import type { PageData } from './$types';
-  import ButtonLink from '$lib/components/ButtonLink.svelte'
+  import ButtonLink from '$lib/components/common/ButtonLink.svelte'
   import { name, website } from '$lib/info'
-  import ToC from '$lib/components/ToC.svelte'
-  import PostPreview from '$lib/components/PostPreview.svelte';
-  import ArrowLeftIcon from '$lib/components/ArrowLeftIcon.svelte'
+  import ToC from '$lib/components/common/ToC.svelte'
+  import Disqus from '$lib/components/common/Disqus.svelte';
+  import PostPreview from '$lib/components/post/PostPreview.svelte';
+  import ArrowLeftIcon from '$lib/components/common/ArrowLeftIcon.svelte'
 
   /** @type {import('./$types').PageData} */
   export let data: PageData
@@ -65,6 +66,10 @@
     </div>
   </div>
 </article>
+
+<div class="pt-12">
+  <Disqus />
+</div>
 
 <div class="pt-12 flex justify-between">
   <ButtonLink href={`/posts`}>

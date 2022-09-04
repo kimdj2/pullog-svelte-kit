@@ -1,19 +1,20 @@
 import { error } from '@sveltejs/kit';
 import { api } from '$lib/api';
 import type { PostList } from '$lib/model/post-list'
-import type { PageServerLoad, Action } from './$types';
+import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (data) => {
-	const response = await api('GET', `boards`);
+	let page: number = 1
+	const response = await api('GET', `boards?page=${page}`);
 
 	if (response.status === 404) {
 		return {
-			postList: {} as PostList
+			postList: {} as PostList,
 		};
 	}
 	if (response.status === 200) {
 		return {
-			postList: (await response.json()) as PostList
+			postList: (await response.json()) as PostList,
 		};
 	}
 	throw error(response.status);

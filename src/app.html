@@ -6,7 +6,7 @@
     <link rel="icon" href="/favicon.png" />
     %sveltekit.head%
     <script>
-      const storageValue = JSON.parse(localStorage.getItem('prefersLight')!)
+      const storageValue = JSON.parse(localStorage.getItem('prefersLight'))
       const prefersLight = storageValue
         ? Boolean(storageValue)
         : window?.matchMedia('(prefers-color-scheme: light)').matches
