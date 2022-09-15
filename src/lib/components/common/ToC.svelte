@@ -70,10 +70,9 @@
 
   function setActiveHeading() {
     scrollY = window.scrollY
-
     const visibleIndex =
       headings.findIndex(
-        (heading) => heading.node.offsetTop + heading.node.clientHeight > scrollY
+        (heading) => cumulativeOffset(heading.node).top - heading.node.offsetHeight > scrollY
       ) - 1
 
     activeHeading = headings[visibleIndex]
