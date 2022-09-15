@@ -16,12 +16,25 @@
   let headings: Heading[] = []
 
   function moveScroll(node: HTMLElement) {
-    console.log(node.offsetTop)
-    console.log(node.clientHeight)
-    window.scrollTo(0, node.offsetTop + node.clientHeight)
+    const position = cumulativeOffset(node)
+    window.scrollTo(0, position.top)
     updateHeadings()
     setActiveHeading()
   }
+
+  const cumulativeOffset = (node: HTMLElement | null)  => {
+    let top = 0, left = 0;
+    do {
+        top += node?.offsetTop  || 0
+        left += node?.offsetLeft || 0
+        node = node?.offsetParent
+    } while(node);
+
+    return {
+        top: top,
+        left: left
+    };
+};
 
   function updateHeadings() {
     const nodes = [
