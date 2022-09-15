@@ -95,7 +95,7 @@
 <ul class="mt-2 !pl-0">
   {#each headings as heading}
     <li
-      class="heading list-none my-2 !pl-0 text-base text-slate-400 hover:text-slate-900 dark:text-slate-500 hover:dark:text-slate-100 transition-colors"
+      class="heading list-none my-2 !pl-0 text-base text-slate-400 hover:text-slate-900 dark:text-slate-500 hover:dark:text-slate-100 transition-colors cursor-pointer"
       class:active={activeHeading?.node === heading.node}
       style={`--depth: ${heading.depth}`}
     >
